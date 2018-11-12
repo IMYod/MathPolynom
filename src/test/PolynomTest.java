@@ -3,6 +3,9 @@ package test;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import org.junit.jupiter.api.Test;
 
 import myMath.Polynom;
@@ -183,6 +186,37 @@ class PolynomTest {
 		assertTrue(p0.isZero());
 	}
 	
+	@Test
+	void extremaPointsTest() {
+		Polynom p1 = new Polynom("3*x^2");
+		LinkedList<Double> ll1 =  p1.extremaPoints(-5, 5, 0.25);
+		assertFalse(ll1.isEmpty());
+		Iterator<Double> it1 = ll1.iterator();
+		assertTrue(0 == it1.next());
+		assertFalse(it1.hasNext());
+		
+		Polynom p2 = new Polynom("5x");
+		LinkedList<Double> ll2 =  p2.extremaPoints(-5, 5, 0.25);
+		assertTrue(ll2.isEmpty());
+		
+		Polynom p3 = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+		LinkedList<Double> ll3 =  p3.extremaPoints(-2, 6, 0.1);
+		int actual = ll3.size();
+		assertEquals(3, actual);
+	}
 	
+	@Test
+	void areaAboveTest() {
+		Polynom p1 = new Polynom("-10");
+		double actual = p1.areaAbove(0, 10, 2);
+		assertEquals(100, actual);
+		
+		actual = p1.areaAbove(0, 9, 2);
+		assertEquals(90, actual);
+		
+		p1 = new Polynom();
+		actual = p1.areaAbove(-5, 9, 0.1);
+		assertTrue(actual==0);
+	}
 
 }

@@ -3,7 +3,9 @@ package myMath;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import gret.LinePlotTest;
 import myMath.Monom;
+
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
  * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral.
@@ -310,6 +312,45 @@ public class Polynom implements Polynom_able
 			s += temp.toString();
 		}
 		return s;
+	}
+	
+	public void GUI(double x0, double x1, double eps) {
+		System.out.println("Area above x axis: " + areaAbove(x0, x1, eps));
+		 LinePlotTest frame = new LinePlotTest(this, x0, x1, eps);
+	     frame.setVisible(true);
+	}
+	
+	public LinkedList<Double> extremaPoints(double x0, double x1, double eps) {
+		LinkedList<Double> answer = new LinkedList<>();
+		if (x0 > x1)
+			return answer;
+		Polynom der = (Polynom)this.derivative();
+		double pointer = x0;
+		while (pointer <= x1) {
+			double changeDer = der.f(pointer)*der.f(pointer-eps); 
+			if (changeDer < 0 )
+					answer.add(pointer);
+			else if (changeDer == 0 && der.f(pointer)==0) //pointer is extreme point
+				answer.add(pointer);
+			pointer += eps;
+		}
+		return answer;
+	}
+	
+	public double areaAbove (double x0, double x1, double eps) {
+		if (x0 >= x1)
+			return 0;
+		if (eps <=0)
+			return 0;
+		double step = x0;
+		double sumArea = 0;
+		while (step + eps <= x1)
+		{
+			sumArea += Math.min(this.f(step),0) * eps; //Sum just the f(x) above the X axis
+			step += eps;
+		}
+		sumArea += Math.min(this.f(step),0) * (x1 - step); //Sum the last square, his width<eps
+		return -sumArea;
 	}
 
 }
