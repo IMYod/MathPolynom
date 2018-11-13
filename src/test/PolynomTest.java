@@ -218,5 +218,12 @@ class PolynomTest {
 		actual = p1.areaAbove(-5, 9, 0.1);
 		assertTrue(actual==0);
 	}
+	
+	@Test
+	void GUITest() {
+		Polynom p = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+		p.GUI(-2, 6, 0.01);
+		assertTrue(true); //If is didn't throw exception
+	}
 
 }
