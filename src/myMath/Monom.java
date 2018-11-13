@@ -213,7 +213,7 @@ public class Monom implements function
 	/**
 	 * This is a boolean function that checks if two monoms are equals.
 	 *
-	 * @param m1 The monom with which we will examine equality.
+	 * @param o1 The object or monom with which we will examine equality.
 	 * @return True if they are equal, and false if they are not.
 	 */
 	public boolean equals(Object o1)
