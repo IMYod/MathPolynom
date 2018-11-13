@@ -1,7 +1,7 @@
 # Polynom
 
-In this project we created a two main class, which called "Polynom" and "Monom" that implements several interfaces. And also  a "Test" class. 
-We chose linkedlist as our data Structure, because we think it more useful and dynamic to changes, in a way that saves space in memory. so that in each node will be a one monom.
+In this project we created two main classes, which called "Polynom" and "Monom" that implements several interfaces. And also  a "Test" class for JUnit
+We chose linkedlist as our data Structure, because we think it more useful, efficient and dynamic to changes. so that each node will contain one monom.
 
 ```
 Note: We assumed that the input is normal , according to Elizabeth.
