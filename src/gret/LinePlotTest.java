@@ -13,7 +13,12 @@ import de.erichseifert.gral.plots.points.DefaultPointRenderer2D;
 import de.erichseifert.gral.plots.points.PointRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
 import myMath.Polynom;
-
+/**
+ * This class will present a polynomial in a visual form. 
+ * also be able to find the extreme points of the function , and paint them.
+ * We used garal open source so,
+ * Credit to garl http://trac.erichseifert.de/gral/wiki/Tutorials/XYPlot.
+ */
 public class LinePlotTest extends JFrame {
     
 	private Polynom poly;
@@ -21,7 +26,8 @@ public class LinePlotTest extends JFrame {
 	private double to;
 	private double eps = 0.25;
 	
-	public LinePlotTest(Polynom _p, double x0, double x1, double _eps) {
+	public LinePlotTest(Polynom _p, double x0, double x1, double _eps) 
+	{
         poly= new Polynom(_p);
         from = x0;
         to = x1;

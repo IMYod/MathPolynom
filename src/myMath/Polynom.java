@@ -313,13 +313,24 @@ public class Polynom implements Polynom_able
 		}
 		return s;
 	}
-	
+	/**
+	 * This function run the LinePoltTest object and start the Gui for the polynom.
+	 * @param x0 The start of the range.
+	 * @param x1 The end of the range.
+	 * @param eps A fixed amount of jump between the points in the function.
+	 */
 	public void GUI(double x0, double x1, double eps) {
 		System.out.println("Area above x axis: " + areaAbove(x0, x1, eps));
 		 LinePlotTest frame = new LinePlotTest(this, x0, x1, eps);
 	     frame.setVisible(true);
 	}
-	
+	/**
+	 * This function compute the extream points of some polynom
+	 * @param x0 The start point of the range.
+	 * @param x1 The end point ogf the range.
+	 * @param eps A fixed amount of jump between the points in the function
+	 * @return A list of the exteam points of the polynom.
+	 */
 	public LinkedList<Double> extremaPoints(double x0, double x1, double eps) {
 		LinkedList<Double> answer = new LinkedList<>();
 		if (x0 > x1)
@@ -336,8 +347,16 @@ public class Polynom implements Polynom_able
 		}
 		return answer;
 	}
-	
-	public double areaAbove (double x0, double x1, double eps) {
+	/**
+	 * This function Calculate the area above the function
+	 *  and under the X axis for the Epsilon.
+	 * @param x0 The start point for the range.
+	 * @param x1 The end point for the range.
+	 * @param eps A fixed amount of jump between the points in the function.
+	 * @return The sum of the area.
+	 */
+	public double areaAbove (double x0, double x1, double eps) 
+	{
 		if (x0 >= x1)
 			return 0;
 		if (eps <=0)
