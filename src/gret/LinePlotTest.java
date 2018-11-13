@@ -70,7 +70,11 @@ public class LinePlotTest extends JFrame {
         plot.getPointRenderers(dataDer).get(0).setColor(colorDer);
         plot.getLineRenderers(data).get(0).setColor(color);
     }
-
+/**
+ * Main funtion that enable the gui on the polynom .
+ * The GUI get (start range, End rang, epsilon)
+ * 
+ */
     public static void main(String[] args) {
     	Polynom p = new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
     	p.GUI(-2, 6, 0.01);
